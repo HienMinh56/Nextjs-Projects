@@ -4,7 +4,6 @@ import { getTitem } from "../../utils/localStorageExtension";
 import { formatDateToDDMMYYYY } from "../../utils/util";
 import { api } from "../../api/api";
 import { accountState } from "../../atom/accountState";
-import { useEffect } from "react";
 
 export const PaymentSucess = () => {
   const account = useRecoilValue(accountState)
@@ -51,11 +50,9 @@ export const PaymentSucess = () => {
     localStorage.removeItem('cartTool');
   }
 
-  useEffect(() => {
-    if(account?.sub !== undefined){
-      order()
-    }
-  },[])
+  if(account?.sub !== undefined){
+    order()
+  }
   
   return (
     <>

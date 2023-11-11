@@ -4,8 +4,6 @@ import { Form, useParams } from "react-router-dom";
 import { api } from "../../api/api";
 import { useRecoilValue } from "recoil";
 import { accountState } from "../../atom/accountState";
-import StarIcon from "@mui/icons-material/Star";
-import { toast } from "react-toastify";
 
 export const StudyingCourses = () => {
   const [Parts, setParts] = useState([]);
@@ -15,56 +13,20 @@ export const StudyingCourses = () => {
 
   const { courseId } = useParams();
 
-  const callback = async () => {
-    const courseLessions = await api.getCourseDetails(courseId);
-    console.log("courseLessions", courseLessions);
-    setParts(courseLessions);
-    const getCourse = await api.getCourseById(courseId);
-    setCourse(getCourse);
-    setPart(courseLessions[0]);
-    console.log("getCourse", getCourse);
-  };
-
   useEffect(() => {
-    
+    const callback = async () => {
+      const courseLessions = await api.getCourseDetails(courseId);
+      console.log("courseLessions", courseLessions);
+      setParts(courseLessions);
+      const getCourse = await api.getCourseById(courseId);
+      setCourse(getCourse);
+      setPart(courseLessions[0]);
+      console.log("getCourse", getCourse);
+    };
 
     callback();
   }, []);
 
-  const printRating = (n) => {
-    const ratingArray = [];
-    for (let i = 0; i < n; i++) {
-      ratingArray.push(<RatingIcon key={i} />);
-    }
-    return ratingArray;
-  };
-
-  const RatingIcon = () => (
-    <span className="text-starYellow">
-      <StarIcon />
-    </span>
-  );
-
-  const submitComment = async(event) => {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-
-    const res = await api.postComment({
-      courseId,
-      user: {
-        username: account.sub
-      },
-      comment: formData.get('comment'),
-      rating: 0
-    })
-
-    console.log(res);
-
-    toast(res,{type: toast.TYPE.INFO})
-
-    await callback()
-  }
   return (
     <>
       <div className="flex flex-col">
