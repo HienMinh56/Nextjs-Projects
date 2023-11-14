@@ -9,6 +9,7 @@ import { HiTemplate } from "react-icons/hi";
 import { SiCoursera } from "react-icons/si";
 
 const CourseTable = () => {
+  window.scrollTo(0, 0);
   const account = useRecoilValue(accountState);
   const [courses, setCourses] = useState([]);
 
@@ -25,8 +26,7 @@ const CourseTable = () => {
       <div className="p-4">
         <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
           <div className="my-3 p-2 grid md:grid-cols-5 sm:grid-cols-5 grid-cols-5 items-center justify-between cursor-pointer gap-3">
-            <span>courses</span>
-            <span className="sm:text-left text-right"># courses</span>
+            <span># Course</span>
             <span className="hidden md:grid">Title</span>
             <span className="hidden sm:grid">Price</span>
             <span className="hidden sm:grid">Category</span>
