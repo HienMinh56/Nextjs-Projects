@@ -1,7 +1,9 @@
 import React from 'react';
 import { RxSketchLogo, RxDashboard, RxPerson } from 'react-icons/rx';
-import { HiOutlineShoppingBag } from 'react-icons/hi';
+import { HiOutlineShoppingBag, HiTemplate } from 'react-icons/hi';
+import { SiCoursera } from 'react-icons/si'
 import { FiSettings } from 'react-icons/fi';
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import { Link } from 'react-router-dom';
 
 const Sidebar = ({ children }) => {
@@ -30,6 +32,22 @@ const Sidebar = ({ children }) => {
               <HiOutlineShoppingBag size={30} />
             </div>
           </Link>
+          <Link to='/admin/orderTool'>
+            <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block text-center'>
+              <WorkOutlineIcon size={30} />
+            </div>
+          </Link>
+          <Link to='/admin/items'>
+            <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block text-center'>
+              <HiTemplate size={30} />
+            </div>
+          </Link>
+          <Link to='/admin/courses'>
+            <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block text-center'>
+              <SiCoursera size={30} />
+            </div>
+          </Link>
+          
           {/* <Link to='/admin'>
             <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block'>
               <FiSettings size={20} />

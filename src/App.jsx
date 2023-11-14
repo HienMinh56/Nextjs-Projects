@@ -14,7 +14,7 @@ import ToolDetail from "./pages/toolDetail/page";
 import Tool from "./pages/tools/page";
 import AdminLayout from "./layouts/adminLayout";
 import Customers from "./pages/customers/customers";
-import Orders from "./pages/orders/orders";
+import Orders, { OrderTool } from "./pages/orders/orders";
 import { LoginAction } from "./pages/auth/LoginAction";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -38,6 +38,8 @@ import { MentorDetail } from "./pages/MentorDetail/MentorDetail,";
 import { mentorDetailLoader } from "./pages/MentorDetail/MentorDetailLoader";
 import { orderHistoryLoader } from "./pages/OrderHistory/orderHistoryLoader";
 import OrderHistoryPage from "./pages/OrderHistory/page";
+import ItemsManager from "./pages/itemsManager/ItemsManager";
+import CourseTable from "./pages/courseManager/CourseTable";
 
 function App() {
   const [account, setAccount] = useRecoilState(accountState);
@@ -48,6 +50,7 @@ function App() {
       setAccount(localAccount);
     }
   }, []);
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route errorElement={<h1>Error</h1>}>
@@ -64,7 +67,11 @@ function App() {
 
           {/* <Route path="CourseDetail" element={<CoursesDetail />} /> */}
           <Route path="Mentor" element={<Mentor />} />
-          <Route path="Mentor/:username" element={<MentorDetail />} loader={mentorDetailLoader}/>
+          <Route
+            path="Mentor/:username"
+            element={<MentorDetail />}
+            loader={mentorDetailLoader}
+          />
           <Route
             path="Registration"
             element={<Registerdialog />}
@@ -75,16 +82,21 @@ function App() {
           <Route path="cart" element={<Cart />} />
           {/* <Route path="ToolDetail" element={<ToolDetail />} /> */}
           <Route path="MyCourses" element={<MyCourses />} />
-          <Route path="OrderHistory/:username" element={<OrderHistoryPage />} loader={orderHistoryLoader}/>
-          <Route path="Mentor" element={<Mentor />} />
-          
-        </Route>
-
-        <Route
-            path="StudyingCourse/:courseId"
-            element={<><Navbar/><StudyingCoursesPage /><Footer /></>}
+          <Route
+            path="OrderHistory/:username"
+            element={<OrderHistoryPage />}
+            loader={orderHistoryLoader}
           />
-        
+          <Route path="Mentor" element={<Mentor />} />
+          <Route
+            path="StudyingCourse/:courseId"
+            element={
+              <>
+                <StudyingCoursesPage />
+              </>
+            }
+          />
+        </Route>
 
         <Route path="/Profile" element={<Profile />} />
         <Route path="/MentorPage" element={<MentorPage />} />
@@ -94,6 +106,9 @@ function App() {
           <Route index element={<Admin />} />
           <Route path="customers" element={<Customers />} />
           <Route path="orders" element={<Orders />} />
+          <Route path="orderTool" element={<OrderTool />} />
+          <Route path="items" element={<ItemsManager />} />
+          <Route path="courses" element={<CourseTable />} />
         </Route>
       </Route>
     ),

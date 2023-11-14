@@ -113,6 +113,22 @@ export const orderCourse = async (data) => {
   return res.data;
 };
 
+export const setStatusOrderCourse = async (token, id) => {
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+  const res = await axios.put(`http://localhost:8080/ordercourses/${id}`);
+  console.log(res);
+  return res.data;
+};
+
+export const setStatusOrderItems = async (token, id, order) => {
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+  const res = await axios.put(`http://localhost:8080/orderitems/${id}`, order);
+  console.log(res);
+  return res.data;
+};
+
 export const getOrderCourse = async (token) => {
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
@@ -187,6 +203,20 @@ export const postProfileImage = async (formData, username) => {
 export const postCourseImage = async (formData, course_id) => {
   const res = await axios.post(
     `http://localhost:8080/courses/upload/image/${course_id}`,
+    formData,
+    {
+      headers: {
+        "Content-Type": "multipart/form-data", // Set the content type for a file upload
+      },
+    }
+  );
+  console.log(res);
+  return res.data;
+};
+
+export const postToolImage = async (formData, item_id) => {
+  const res = await axios.post(
+    `http://localhost:8080/items/upload/image/${item_id}`,
     formData,
     {
       headers: {
@@ -274,6 +304,16 @@ export const delCourse = async (id, token) => {
   return res.data;
 };
 
+export const delTool = async (id, token) => {
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+  const res = await axios
+    .delete(`http://localhost:8080/items/${id}`)
+    .catch((err) => toast(err.message, { type: toast.TYPE.ERROR }));
+  console.log(res);
+  return res.data;
+};
+
 export const postCourse = async (data, token) => {
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
@@ -284,11 +324,31 @@ export const postCourse = async (data, token) => {
   return res.data;
 };
 
+export const postTool = async (data, token) => {
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+  const res = await axios
+    .post(`http://localhost:8080/items`, data)
+    .catch((err) => toast(err.message, { type: toast.TYPE.ERROR }));
+  console.log(res);
+  return res.data;
+};
+
 export const editCourse = async (data, token) => {
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
   const res = await axios
     .put(`http://localhost:8080/courses`, data)
+    .catch((err) => toast(err.message, { type: toast.TYPE.ERROR }));
+  console.log(res);
+  return res.data;
+};
+
+export const editTool = async (data, token) => {
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+  const res = await axios
+    .put(`http://localhost:8080/items`, data)
     .catch((err) => toast(err.message, { type: toast.TYPE.ERROR }));
   console.log(res);
   return res.data;
@@ -344,6 +404,8 @@ export const api = {
   postProfileImage,
   postCourse,
   postCourseImage,
+  postTool,
+  postToolImage,
 
   orderCourse,
   orderTool,
@@ -356,6 +418,10 @@ export const api = {
 
   editCourse,
   editCourseDetail,
+  editTool,
+  setStatusOrderCourse,
+  setStatusOrderItems,
 
   delCourse,
+  delTool
 };

@@ -5,8 +5,10 @@ import { Form, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { fileToBase64 } from "../../utils/util";
 import { api } from "../../api/api";
+import { toast } from "react-toastify";
 
 export const Profile = () => {
+  window.scrollTo(0, 0);
   const [account, setAccount] = useRecoilState(accountState);
   const [avatarFile, setAvatarfile] = useState(account.img);
   const navigate = useNavigate();
@@ -16,9 +18,7 @@ export const Profile = () => {
     const formData = new FormData(event.target);
     const result = await api.postProfileImage(formData, account.sub);
     console.log(result);
-    localStorage.clear();
-    setAccount(undefined);
-    navigate("/auth/login");
+    setAccount({...account, img: result.img});
   };
 
   const submitPassword = async (event) => {
@@ -43,10 +43,8 @@ export const Profile = () => {
       data[key] = value;
     });
     const result = await api.changeAccountInfo(data);
-    console.log(result);
-    localStorage.clear();
-    setAccount(undefined);
-    navigate("/auth/login");
+    toast(result, {type: toast.TYPE.INFO})
+    setAccount({...account, address: data.address});
   };
   return (
     <main>
