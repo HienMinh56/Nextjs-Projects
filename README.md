@@ -1,8 +1,15 @@
-# React + Vite
+# Selling drawing courses website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a front-end design project for a website selling drawing courses using ReactJS + Vite. This is our team's first product, so there will be a few errors and the interface may have some errors that haven't had a chance to be fixed, but in general, we have met most of the requirements of a normal sales website.
 
-Currently, two official plugins are available:
+```bash
+npm run dev (to run project)
+npm install (to install dependencies)
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Screenshot 2023-11-23 223605](https://github.com/HienMinh56/BookStoreManagement-C-Sharp/assets/133141329/2fd67995-ae5e-42f8-8c7f-d7fbbad9458e)
+
+| Contributor: <br /> <a href="https://github.com/Le0Nguyen">Linh(Leader)</a> <br /> <a href="https://github.com/HienMinh56">Fancy</a> <br /> <a href="https://github.com/vominhman1611">Mẫn</a> <br /> <a href="https://github.com/manh2910">Mạnh</a> | UI: <br /> Fancy <br /> Linh <br /> <br /> <br /> | UX: <br /> Fancy <br /> Linh <br /> Mẫn <br /> <br /> | API: <br /> Mẫn <br /> Mạnh <br /> <br /> <br /> |
+| ------------- | ------------- | ------------- | ------------- |
+
+#### Copyright © 2023 HienMinh56(Fancy)
