@@ -9,7 +9,10 @@ npm install (to install dependencies)
 
 ![Screenshot 2023-11-23 223605](https://github.com/HienMinh56/BookStoreManagement-C-Sharp/assets/133141329/2fd67995-ae5e-42f8-8c7f-d7fbbad9458e)
 
-| Contributor: <br /> <a href="https://github.com/Le0Nguyen">Linh(Leader)</a> <br /> <a href="https://github.com/HienMinh56">Fancy</a> <br /> <a href="https://github.com/vominhman1611">Mẫn</a> <br /> <a href="https://github.com/manh2910">Mạnh</a> | UI: <br /> Fancy <br /> Linh <br /> <br /> <br /> | UX: <br /> Fancy <br /> Linh <br /> Mẫn <br /> <br /> | API: <br /> Mẫn <br /> Mạnh <br /> <br /> <br /> |
-| ------------- | ------------- | ------------- | ------------- |
+## 🤝 Contributors
+
+<a href="https://github.com/HienMinh56/SellingDrawingCoure/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=HienMinh56/SellingDrawingCoure" />
+</a>
 
 #### Copyright © 2023 HienMinh56(Fancy)
